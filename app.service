@@ -3,11 +3,11 @@ Description=Gunicorn instance to serve the Flask application
 After=network.target
 
 [Service]
-User=tutorialuser
+User=runner
 Group=www-data
-WorkingDirectory=/solution
-Environment="PATH=/solution/myvenv/bin"
-ExecStart=/solution/myvenv/bin/gunicorn --workers 3 --bind unix:app.sock -m 007 wsgi:app
+WorkingDirectory=/site
+Environment="PATH=/site/myvenv/bin"
+ExecStart=/site/myvenv/bin/gunicorn --workers 3 --bind unix:app.sock -m 007 wsgi:app
 
 [Install]
 WantedBy=multi-user.target
